@@ -9,6 +9,7 @@ export const protobufPackage = "alice.checkers.checkers";
 /** GenesisState defines the checkers module's genesis state. */
 export interface GenesisState {
   params: Params | undefined;
+  /** SystemInfo systemInfo = 2; */
   systemInfo: SystemInfo | undefined;
   /** this line is used by starport scaffolding # genesis/proto/state */
   storedGameList: StoredGame[];

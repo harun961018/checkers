@@ -52,6 +52,9 @@ func TestCreate1GameHasSaved(t *testing.T) {
 		Turn:  "b",
 		Black: bob,
 		Red:   carol,
+		Winner:      "*",
+		Deadline:    types.FormatDeadline(ctx.BlockTime().Add(types.MaxTurnDuration)),
+		MoveCount:   0,
 	}, game1)
 }
 

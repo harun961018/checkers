@@ -105,6 +105,8 @@ func TestPlayMoveSavedGame(t *testing.T) {
 		Black: bob,
 		Red:   carol,
 		Winner: "*",
+		Deadline: types.FormatDeadline(ctx.BlockTime().Add(types.MaxTurnDuration)),
+		MoveCount: 1,
 	}, game1)
 }
 
@@ -131,6 +133,7 @@ func TestPlayMoveEmitted(t *testing.T) {
 			{Key: "captured-x", Value: "-1"},
 			{Key: "captured-y", Value: "-1"},
 			{Key: "winner", Value: "*"},
+			{Key: "board", Value: "*b*b*b*b|b*b*b*b*|***b*b*b|**b*****|********|r*r*r*r*|*r*r*r*r|r*r*r*r*"},
 		},
 	}, event)
 }
@@ -256,6 +259,9 @@ func TestPlayMove2SavedGame(t *testing.T) {
 		Turn:  "b",
 		Black: bob,
 		Red:   carol,
+		Winner: "*",
+		Deadline: types.FormatDeadline(ctx.BlockTime().Add(types.MaxTurnDuration)),
+		MoveCount: 2,
 	}, game1)
 }
 
@@ -289,7 +295,8 @@ func TestPlayMove2Emitted(t *testing.T) {
 		{Key: "captured-x", Value: "-1"},
 		{Key: "captured-y", Value: "-1"},
 		{Key: "winner", Value: "*"},
-	}, event.Attributes[5:])
+		{Key: "board", Value: "*b*b*b*b|b*b*b*b*|***b*b*b|**b*****|*r******|**r*r*r*|*r*r*r*r|r*r*r*r*"},
+	}, event.Attributes[6:])
 }
 
 func TestPlayMove3(t *testing.T) {
@@ -367,6 +374,8 @@ func TestPlayMove3SavedGame(t *testing.T) {
 		Black: bob,
 		Red:   carol,
 		Deadline:  types.FormatDeadline(ctx.BlockTime().Add(types.MaxTurnDuration)),
+		Winner: "*",
+		MoveCount: 3,
 	}, game1)
 }
 

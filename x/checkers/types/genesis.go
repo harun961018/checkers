@@ -13,6 +13,8 @@ func DefaultGenesis() *GenesisState {
 		// SystemInfo:     nil,
 		SystemInfo: SystemInfo{
 			NextId: uint64(DefaultIndex),
+			FifoHeadIndex: NoFifoIndex,
+			FifoTailIndex: NoFifoIndex,
 		},
 		StoredGameList: []StoredGame{},
 		// this line is used by starport scaffolding # genesis/types/default

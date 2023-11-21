@@ -63,8 +63,10 @@ import (
 // }
 
 func TestPlayMove2Games2MovesHasSavedFifo(t *testing.T) {
-	msgServer, keeper, context := setupMsgServerWithOneGameForPlayMove(t)
+	msgServer, keeper, context, ctrl, escrow := setupMsgServerWithOneGameForPlayMove(t)
 	ctx := sdk.UnwrapSDKContext(context)
+	defer ctrl.Finish()
+	escrow.ExpectAny(context)
 	msgServer.CreateGame(context, &types.MsgCreateGame{
 		Creator: bob,
 		Black:   carol,
@@ -107,6 +109,7 @@ func TestPlayMove2Games2MovesHasSavedFifo(t *testing.T) {
 		MoveCount:   uint64(1),
 		BeforeIndex: "-1",
 		AfterIndex:  "2",
+		Wager: 45,
 	}, game1)
 	game2, found := keeper.GetStoredGame(ctx, "2")
 	require.True(t, found)
@@ -121,5 +124,6 @@ func TestPlayMove2Games2MovesHasSavedFifo(t *testing.T) {
 		MoveCount:   uint64(1),
 		BeforeIndex: "1",
 		AfterIndex:  "-1",
+		Wager: 0,
 	}, game2)
 }

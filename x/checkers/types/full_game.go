@@ -81,4 +81,8 @@ func GetNextDeadline(ctx sdk.Context) time.Time {
     return ctx.BlockTime().Add(MaxTurnDuration)
 }
 
+func (storedGame *StoredGame) GetWagerCoin() (wager sdk.Coin) {
+	return sdk.NewCoin(sdk.DefaultBondDenom, sdk.NewInt(int64(storedGame.Wager)))
+}
+
 

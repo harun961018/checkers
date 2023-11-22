@@ -62,3 +62,8 @@ const (
     GameForfeitedEventBoard     = "board"
 )
 
+const (
+    CreateGameGas = 15000
+    PlayMoveGas   = 1000
+)
+

@@ -12,7 +12,7 @@ func DefaultGenesis() *GenesisState {
 	return &GenesisState{
 		// SystemInfo:     nil,
 		SystemInfo: SystemInfo{
-			NextId: uint64(DefaultIndex),
+			NextId:        uint64(DefaultIndex),
 			FifoHeadIndex: NoFifoIndex,
 			FifoTailIndex: NoFifoIndex,
 		},

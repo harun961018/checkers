@@ -10,12 +10,12 @@ import (
 )
 
 func (k Keeper) ForfeitExpiredGames(goCtx context.Context) {
-    // TODO
+	// TODO
 	ctx := sdk.UnwrapSDKContext(goCtx)
 
 	opponents := map[string]string{
-    	rules.PieceStrings[rules.BLACK_PLAYER]: rules.PieceStrings[rules.RED_PLAYER],
-    	rules.PieceStrings[rules.RED_PLAYER]:   rules.PieceStrings[rules.BLACK_PLAYER],
+		rules.PieceStrings[rules.BLACK_PLAYER]: rules.PieceStrings[rules.RED_PLAYER],
+		rules.PieceStrings[rules.RED_PLAYER]:   rules.PieceStrings[rules.BLACK_PLAYER],
 	}
 	// Get FIFO information
 	systemInfo, found := k.GetSystemInfo(ctx)

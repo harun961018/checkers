@@ -49,8 +49,8 @@ import (
 // 	// Initialize params
 // 	k.SetParams(ctx, types.DefaultParams())
 
-// 	return k, ctx
-// }
+//		return k, ctx
+//	}
 func CheckersKeeper(t testing.TB) (*keeper.Keeper, sdk.Context) {
 	return CheckersKeeperWithMocks(t, nil)
 }

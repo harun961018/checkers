@@ -170,7 +170,7 @@ var (
 		stakingtypes.NotBondedPoolName: {authtypes.Burner, authtypes.Staking},
 		govtypes.ModuleName:            {authtypes.Burner},
 		ibctransfertypes.ModuleName:    {authtypes.Minter, authtypes.Burner},
-		checkersmoduletypes.ModuleName: nil,												
+		checkersmoduletypes.ModuleName: nil,
 		// this line is used by starport scaffolding # stargate/app/maccPerms
 	}
 )
@@ -614,8 +614,6 @@ func NewApp(
 
 	return app
 }
-
-
 
 // Name returns the name of the App
 func (app *App) Name() string { return app.BaseApp.Name() }

@@ -3,7 +3,7 @@ package keeper_test
 import (
 	"context"
 	"testing"
-	
+
 	keepertest "github.com/alice/checkers/testutil/keeper"
 	"github.com/alice/checkers/x/checkers"
 	"github.com/alice/checkers/x/checkers/keeper"
@@ -107,24 +107,24 @@ func TestPlayMoveSavedGame(t *testing.T) {
 	systemInfo, found := keeper.GetSystemInfo(ctx)
 	require.True(t, found)
 	require.EqualValues(t, types.SystemInfo{
-		NextId: 2,
+		NextId:        2,
 		FifoHeadIndex: "1",
 		FifoTailIndex: "1",
 	}, systemInfo)
 	game1, found := keeper.GetStoredGame(ctx, "1")
 	require.True(t, found)
 	require.EqualValues(t, types.StoredGame{
-		Index: "1",
-		Board: "*b*b*b*b|b*b*b*b*|***b*b*b|**b*****|********|r*r*r*r*|*r*r*r*r|r*r*r*r*",
-		Turn:  "r",
-		Black: bob,
-		Red:   carol,
-		Winner: "*",
-		Deadline: types.FormatDeadline(ctx.BlockTime().Add(types.MaxTurnDuration)),
-		MoveCount: 1,
+		Index:       "1",
+		Board:       "*b*b*b*b|b*b*b*b*|***b*b*b|**b*****|********|r*r*r*r*|*r*r*r*r|r*r*r*r*",
+		Turn:        "r",
+		Black:       bob,
+		Red:         carol,
+		Winner:      "*",
+		Deadline:    types.FormatDeadline(ctx.BlockTime().Add(types.MaxTurnDuration)),
+		MoveCount:   1,
 		BeforeIndex: "-1",
-		AfterIndex: "-1",
-		Wager: 45, 
+		AfterIndex:  "-1",
+		Wager:       45,
 	}, game1)
 }
 
